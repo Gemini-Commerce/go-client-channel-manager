@@ -13,6 +13,8 @@ package channelmanager
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ChannelmanagerCreateChannelRequest type satisfies the MappedNullable interface at compile time
@@ -20,22 +22,27 @@ var _ MappedNullable = &ChannelmanagerCreateChannelRequest{}
 
 // ChannelmanagerCreateChannelRequest struct for ChannelmanagerCreateChannelRequest
 type ChannelmanagerCreateChannelRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Code *string `json:"code,omitempty"`
+	TenantId string `json:"tenantId"`
+	Code string `json:"code"`
 	Image *string `json:"image,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	DefaultLanguage *ChannelmanagerLanguageCode `json:"defaultLanguage,omitempty"`
 	Settings *ChannelmanagerChannelSettings `json:"settings,omitempty"`
 	Website *ChannelmanagerChannelTypeWebsite `json:"website,omitempty"`
 	Status *ChannelmanagerChannelStatus `json:"status,omitempty"`
 }
 
+type _ChannelmanagerCreateChannelRequest ChannelmanagerCreateChannelRequest
+
 // NewChannelmanagerCreateChannelRequest instantiates a new ChannelmanagerCreateChannelRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelmanagerCreateChannelRequest() *ChannelmanagerCreateChannelRequest {
+func NewChannelmanagerCreateChannelRequest(tenantId string, code string, name string) *ChannelmanagerCreateChannelRequest {
 	this := ChannelmanagerCreateChannelRequest{}
+	this.TenantId = tenantId
+	this.Code = code
+	this.Name = name
 	var defaultLanguage ChannelmanagerLanguageCode = CHANNELMANAGERLANGUAGECODE_UNKNOWN
 	this.DefaultLanguage = &defaultLanguage
 	var status ChannelmanagerChannelStatus = CHANNELMANAGERCHANNELSTATUS_UNKNOWN
@@ -55,68 +62,52 @@ func NewChannelmanagerCreateChannelRequestWithDefaults() *ChannelmanagerCreateCh
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *ChannelmanagerCreateChannelRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateChannelRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateChannelRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *ChannelmanagerCreateChannelRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *ChannelmanagerCreateChannelRequest) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateChannelRequest) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateChannelRequest) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given string and assigns it to the Code field.
+// SetCode sets field value
 func (o *ChannelmanagerCreateChannelRequest) SetCode(v string) {
-	o.Code = &v
+	o.Code = v
 }
 
 // GetImage returns the Image field value if set, zero value otherwise.
@@ -151,36 +142,28 @@ func (o *ChannelmanagerCreateChannelRequest) SetImage(v string) {
 	o.Image = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *ChannelmanagerCreateChannelRequest) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateChannelRequest) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateChannelRequest) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *ChannelmanagerCreateChannelRequest) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetDefaultLanguage returns the DefaultLanguage field value if set, zero value otherwise.
@@ -321,18 +304,12 @@ func (o ChannelmanagerCreateChannelRequest) MarshalJSON() ([]byte, error) {
 
 func (o ChannelmanagerCreateChannelRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["code"] = o.Code
 	if !IsNil(o.Image) {
 		toSerialize["image"] = o.Image
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["name"] = o.Name
 	if !IsNil(o.DefaultLanguage) {
 		toSerialize["defaultLanguage"] = o.DefaultLanguage
 	}
@@ -346,6 +323,45 @@ func (o ChannelmanagerCreateChannelRequest) ToMap() (map[string]interface{}, err
 		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil
+}
+
+func (o *ChannelmanagerCreateChannelRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"code",
+		"name",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varChannelmanagerCreateChannelRequest := _ChannelmanagerCreateChannelRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varChannelmanagerCreateChannelRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ChannelmanagerCreateChannelRequest(varChannelmanagerCreateChannelRequest)
+
+	return err
 }
 
 type NullableChannelmanagerCreateChannelRequest struct {

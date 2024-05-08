@@ -13,6 +13,8 @@ package channelmanager
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ChannelmanagerListChannelsWithAssociationsRequest type satisfies the MappedNullable interface at compile time
@@ -20,18 +22,21 @@ var _ MappedNullable = &ChannelmanagerListChannelsWithAssociationsRequest{}
 
 // ChannelmanagerListChannelsWithAssociationsRequest struct for ChannelmanagerListChannelsWithAssociationsRequest
 type ChannelmanagerListChannelsWithAssociationsRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId string `json:"tenantId"`
 	// The number of items to return per page. If not specified, it will returns all items.
 	PageSize *int64 `json:"pageSize,omitempty"`
 	PageToken *string `json:"pageToken,omitempty"`
 }
 
+type _ChannelmanagerListChannelsWithAssociationsRequest ChannelmanagerListChannelsWithAssociationsRequest
+
 // NewChannelmanagerListChannelsWithAssociationsRequest instantiates a new ChannelmanagerListChannelsWithAssociationsRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelmanagerListChannelsWithAssociationsRequest() *ChannelmanagerListChannelsWithAssociationsRequest {
+func NewChannelmanagerListChannelsWithAssociationsRequest(tenantId string) *ChannelmanagerListChannelsWithAssociationsRequest {
 	this := ChannelmanagerListChannelsWithAssociationsRequest{}
+	this.TenantId = tenantId
 	return &this
 }
 
@@ -43,36 +48,28 @@ func NewChannelmanagerListChannelsWithAssociationsRequestWithDefaults() *Channel
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *ChannelmanagerListChannelsWithAssociationsRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerListChannelsWithAssociationsRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ChannelmanagerListChannelsWithAssociationsRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *ChannelmanagerListChannelsWithAssociationsRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
@@ -149,9 +146,7 @@ func (o ChannelmanagerListChannelsWithAssociationsRequest) MarshalJSON() ([]byte
 
 func (o ChannelmanagerListChannelsWithAssociationsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
+	toSerialize["tenantId"] = o.TenantId
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
 	}
@@ -159,6 +154,43 @@ func (o ChannelmanagerListChannelsWithAssociationsRequest) ToMap() (map[string]i
 		toSerialize["pageToken"] = o.PageToken
 	}
 	return toSerialize, nil
+}
+
+func (o *ChannelmanagerListChannelsWithAssociationsRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varChannelmanagerListChannelsWithAssociationsRequest := _ChannelmanagerListChannelsWithAssociationsRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varChannelmanagerListChannelsWithAssociationsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ChannelmanagerListChannelsWithAssociationsRequest(varChannelmanagerListChannelsWithAssociationsRequest)
+
+	return err
 }
 
 type NullableChannelmanagerListChannelsWithAssociationsRequest struct {

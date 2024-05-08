@@ -6,10 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId**| **string** |   | [optional]
-**Code**| **string** |   | [optional]
+**TenantId**| **string** |   |
+**Code**| **string** |   |
 **Image**| **string** |   | [optional]
-**Name**| **string** |   | [optional]
+**Name**| **string** |   |
 **DefaultLanguage**| [**ChannelmanagerLanguageCode**](ChannelmanagerLanguageCode.md) |  for more information please, see Model/ChannelmanagerLanguageCode.php  | [optional] [default to CHANNELMANAGERLANGUAGECODE_UNKNOWN]
 **Settings**| [**ChannelmanagerChannelSettings**](ChannelmanagerChannelSettings.md) |   | [optional]
 **Website**| [**ChannelmanagerChannelTypeWebsite**](ChannelmanagerChannelTypeWebsite.md) |   | [optional]

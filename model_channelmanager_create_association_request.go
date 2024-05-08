@@ -13,6 +13,8 @@ package channelmanager
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ChannelmanagerCreateAssociationRequest type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,22 @@ var _ MappedNullable = &ChannelmanagerCreateAssociationRequest{}
 
 // ChannelmanagerCreateAssociationRequest struct for ChannelmanagerCreateAssociationRequest
 type ChannelmanagerCreateAssociationRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	ChannelGrn *string `json:"channelGrn,omitempty"`
-	MarketGrn *string `json:"marketGrn,omitempty"`
+	TenantId string `json:"tenantId"`
+	ChannelGrn string `json:"channelGrn"`
+	MarketGrn string `json:"marketGrn"`
 }
+
+type _ChannelmanagerCreateAssociationRequest ChannelmanagerCreateAssociationRequest
 
 // NewChannelmanagerCreateAssociationRequest instantiates a new ChannelmanagerCreateAssociationRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelmanagerCreateAssociationRequest() *ChannelmanagerCreateAssociationRequest {
+func NewChannelmanagerCreateAssociationRequest(tenantId string, channelGrn string, marketGrn string) *ChannelmanagerCreateAssociationRequest {
 	this := ChannelmanagerCreateAssociationRequest{}
+	this.TenantId = tenantId
+	this.ChannelGrn = channelGrn
+	this.MarketGrn = marketGrn
 	return &this
 }
 
@@ -42,100 +49,76 @@ func NewChannelmanagerCreateAssociationRequestWithDefaults() *ChannelmanagerCrea
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *ChannelmanagerCreateAssociationRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateAssociationRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateAssociationRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *ChannelmanagerCreateAssociationRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetChannelGrn returns the ChannelGrn field value if set, zero value otherwise.
+// GetChannelGrn returns the ChannelGrn field value
 func (o *ChannelmanagerCreateAssociationRequest) GetChannelGrn() string {
-	if o == nil || IsNil(o.ChannelGrn) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ChannelGrn
+
+	return o.ChannelGrn
 }
 
-// GetChannelGrnOk returns a tuple with the ChannelGrn field value if set, nil otherwise
+// GetChannelGrnOk returns a tuple with the ChannelGrn field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateAssociationRequest) GetChannelGrnOk() (*string, bool) {
-	if o == nil || IsNil(o.ChannelGrn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChannelGrn, true
+	return &o.ChannelGrn, true
 }
 
-// HasChannelGrn returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateAssociationRequest) HasChannelGrn() bool {
-	if o != nil && !IsNil(o.ChannelGrn) {
-		return true
-	}
-
-	return false
-}
-
-// SetChannelGrn gets a reference to the given string and assigns it to the ChannelGrn field.
+// SetChannelGrn sets field value
 func (o *ChannelmanagerCreateAssociationRequest) SetChannelGrn(v string) {
-	o.ChannelGrn = &v
+	o.ChannelGrn = v
 }
 
-// GetMarketGrn returns the MarketGrn field value if set, zero value otherwise.
+// GetMarketGrn returns the MarketGrn field value
 func (o *ChannelmanagerCreateAssociationRequest) GetMarketGrn() string {
-	if o == nil || IsNil(o.MarketGrn) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MarketGrn
+
+	return o.MarketGrn
 }
 
-// GetMarketGrnOk returns a tuple with the MarketGrn field value if set, nil otherwise
+// GetMarketGrnOk returns a tuple with the MarketGrn field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateAssociationRequest) GetMarketGrnOk() (*string, bool) {
-	if o == nil || IsNil(o.MarketGrn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MarketGrn, true
+	return &o.MarketGrn, true
 }
 
-// HasMarketGrn returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateAssociationRequest) HasMarketGrn() bool {
-	if o != nil && !IsNil(o.MarketGrn) {
-		return true
-	}
-
-	return false
-}
-
-// SetMarketGrn gets a reference to the given string and assigns it to the MarketGrn field.
+// SetMarketGrn sets field value
 func (o *ChannelmanagerCreateAssociationRequest) SetMarketGrn(v string) {
-	o.MarketGrn = &v
+	o.MarketGrn = v
 }
 
 func (o ChannelmanagerCreateAssociationRequest) MarshalJSON() ([]byte, error) {
@@ -148,16 +131,49 @@ func (o ChannelmanagerCreateAssociationRequest) MarshalJSON() ([]byte, error) {
 
 func (o ChannelmanagerCreateAssociationRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.ChannelGrn) {
-		toSerialize["channelGrn"] = o.ChannelGrn
-	}
-	if !IsNil(o.MarketGrn) {
-		toSerialize["marketGrn"] = o.MarketGrn
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["channelGrn"] = o.ChannelGrn
+	toSerialize["marketGrn"] = o.MarketGrn
 	return toSerialize, nil
+}
+
+func (o *ChannelmanagerCreateAssociationRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"channelGrn",
+		"marketGrn",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varChannelmanagerCreateAssociationRequest := _ChannelmanagerCreateAssociationRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varChannelmanagerCreateAssociationRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ChannelmanagerCreateAssociationRequest(varChannelmanagerCreateAssociationRequest)
+
+	return err
 }
 
 type NullableChannelmanagerCreateAssociationRequest struct {

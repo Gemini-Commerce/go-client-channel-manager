@@ -13,6 +13,8 @@ package channelmanager
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ChannelmanagerCreateMarketRequest type satisfies the MappedNullable interface at compile time
@@ -20,18 +22,23 @@ var _ MappedNullable = &ChannelmanagerCreateMarketRequest{}
 
 // ChannelmanagerCreateMarketRequest struct for ChannelmanagerCreateMarketRequest
 type ChannelmanagerCreateMarketRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Name *string `json:"name,omitempty"`
+	TenantId string `json:"tenantId"`
+	Name string `json:"name"`
 	Description *string `json:"description,omitempty"`
-	Countries []ChannelmanagerCountryCode `json:"countries,omitempty"`
+	Countries []ChannelmanagerCountryCode `json:"countries"`
 }
+
+type _ChannelmanagerCreateMarketRequest ChannelmanagerCreateMarketRequest
 
 // NewChannelmanagerCreateMarketRequest instantiates a new ChannelmanagerCreateMarketRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelmanagerCreateMarketRequest() *ChannelmanagerCreateMarketRequest {
+func NewChannelmanagerCreateMarketRequest(tenantId string, name string, countries []ChannelmanagerCountryCode) *ChannelmanagerCreateMarketRequest {
 	this := ChannelmanagerCreateMarketRequest{}
+	this.TenantId = tenantId
+	this.Name = name
+	this.Countries = countries
 	return &this
 }
 
@@ -43,68 +50,52 @@ func NewChannelmanagerCreateMarketRequestWithDefaults() *ChannelmanagerCreateMar
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *ChannelmanagerCreateMarketRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateMarketRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateMarketRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *ChannelmanagerCreateMarketRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *ChannelmanagerCreateMarketRequest) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateMarketRequest) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateMarketRequest) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *ChannelmanagerCreateMarketRequest) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -139,34 +130,26 @@ func (o *ChannelmanagerCreateMarketRequest) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetCountries returns the Countries field value if set, zero value otherwise.
+// GetCountries returns the Countries field value
 func (o *ChannelmanagerCreateMarketRequest) GetCountries() []ChannelmanagerCountryCode {
-	if o == nil || IsNil(o.Countries) {
+	if o == nil {
 		var ret []ChannelmanagerCountryCode
 		return ret
 	}
+
 	return o.Countries
 }
 
-// GetCountriesOk returns a tuple with the Countries field value if set, nil otherwise
+// GetCountriesOk returns a tuple with the Countries field value
 // and a boolean to check if the value has been set.
 func (o *ChannelmanagerCreateMarketRequest) GetCountriesOk() ([]ChannelmanagerCountryCode, bool) {
-	if o == nil || IsNil(o.Countries) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Countries, true
 }
 
-// HasCountries returns a boolean if a field has been set.
-func (o *ChannelmanagerCreateMarketRequest) HasCountries() bool {
-	if o != nil && !IsNil(o.Countries) {
-		return true
-	}
-
-	return false
-}
-
-// SetCountries gets a reference to the given []ChannelmanagerCountryCode and assigns it to the Countries field.
+// SetCountries sets field value
 func (o *ChannelmanagerCreateMarketRequest) SetCountries(v []ChannelmanagerCountryCode) {
 	o.Countries = v
 }
@@ -181,19 +164,52 @@ func (o ChannelmanagerCreateMarketRequest) MarshalJSON() ([]byte, error) {
 
 func (o ChannelmanagerCreateMarketRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["name"] = o.Name
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !IsNil(o.Countries) {
-		toSerialize["countries"] = o.Countries
-	}
+	toSerialize["countries"] = o.Countries
 	return toSerialize, nil
+}
+
+func (o *ChannelmanagerCreateMarketRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"name",
+		"countries",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varChannelmanagerCreateMarketRequest := _ChannelmanagerCreateMarketRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varChannelmanagerCreateMarketRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ChannelmanagerCreateMarketRequest(varChannelmanagerCreateMarketRequest)
+
+	return err
 }
 
 type NullableChannelmanagerCreateMarketRequest struct {

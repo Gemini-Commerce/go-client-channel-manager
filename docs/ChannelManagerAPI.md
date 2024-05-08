@@ -44,7 +44,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerCreateAssociationRequest() // ChannelmanagerCreateAssociationRequest | 
+	body := *openapiclient.NewChannelmanagerCreateAssociationRequest("TenantId_example", "ChannelGrn_example", "MarketGrn_example") // ChannelmanagerCreateAssociationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,7 +110,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerCreateChannelRequest() // ChannelmanagerCreateChannelRequest | 
+	body := *openapiclient.NewChannelmanagerCreateChannelRequest("TenantId_example", "Code_example", "Name_example") // ChannelmanagerCreateChannelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -176,7 +176,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerCreateMarketRequest() // ChannelmanagerCreateMarketRequest | 
+	body := *openapiclient.NewChannelmanagerCreateMarketRequest("TenantId_example", "Name_example", []openapiclient.ChannelmanagerCountryCode{openapiclient.channelmanagerCountryCode("COUNTRY_CODE_UNKNOWN")}) // ChannelmanagerCreateMarketRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -242,7 +242,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerDeleteAssociationRequest() // ChannelmanagerDeleteAssociationRequest | 
+	body := *openapiclient.NewChannelmanagerDeleteAssociationRequest("TenantId_example", "Id_example") // ChannelmanagerDeleteAssociationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -308,7 +308,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerDeleteChannelRequest() // ChannelmanagerDeleteChannelRequest | 
+	body := *openapiclient.NewChannelmanagerDeleteChannelRequest("TenantId_example", "Id_example") // ChannelmanagerDeleteChannelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -374,7 +374,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerDeleteMarketRequest() // ChannelmanagerDeleteMarketRequest | 
+	body := *openapiclient.NewChannelmanagerDeleteMarketRequest("TenantId_example", "Id_example") // ChannelmanagerDeleteMarketRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -440,7 +440,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerGetChannelRequest() // ChannelmanagerGetChannelRequest | 
+	body := *openapiclient.NewChannelmanagerGetChannelRequest("TenantId_example", "Id_example") // ChannelmanagerGetChannelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -506,7 +506,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerGetChannelWithAssociationsRequest() // ChannelmanagerGetChannelWithAssociationsRequest | 
+	body := *openapiclient.NewChannelmanagerGetChannelWithAssociationsRequest("TenantId_example", "Id_example") // ChannelmanagerGetChannelWithAssociationsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -572,7 +572,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerGetMarketRequest() // ChannelmanagerGetMarketRequest | 
+	body := *openapiclient.NewChannelmanagerGetMarketRequest("TenantId_example", "Id_example") // ChannelmanagerGetMarketRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -638,7 +638,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerGetMarketWithAssociationsRequest() // ChannelmanagerGetMarketWithAssociationsRequest | 
+	body := *openapiclient.NewChannelmanagerGetMarketWithAssociationsRequest("TenantId_example", "Id_example") // ChannelmanagerGetMarketWithAssociationsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -704,7 +704,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerListChannelsRequest() // ChannelmanagerListChannelsRequest | 
+	body := *openapiclient.NewChannelmanagerListChannelsRequest("TenantId_example") // ChannelmanagerListChannelsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -737,7 +737,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -770,7 +770,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerListChannelsWithAssociationsRequest() // ChannelmanagerListChannelsWithAssociationsRequest | 
+	body := *openapiclient.NewChannelmanagerListChannelsWithAssociationsRequest("TenantId_example") // ChannelmanagerListChannelsWithAssociationsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -836,7 +836,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerListMarketsRequest() // ChannelmanagerListMarketsRequest | 
+	body := *openapiclient.NewChannelmanagerListMarketsRequest("TenantId_example") // ChannelmanagerListMarketsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -902,7 +902,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerListMarketsWithAssociationsRequest() // ChannelmanagerListMarketsWithAssociationsRequest | 
+	body := *openapiclient.NewChannelmanagerListMarketsWithAssociationsRequest("TenantId_example") // ChannelmanagerListMarketsWithAssociationsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -935,7 +935,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -968,7 +968,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerUpdateChannelRequest() // ChannelmanagerUpdateChannelRequest | 
+	body := *openapiclient.NewChannelmanagerUpdateChannelRequest("TenantId_example", "Id_example") // ChannelmanagerUpdateChannelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -1034,7 +1034,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewChannelmanagerUpdateMarketRequest() // ChannelmanagerUpdateMarketRequest | 
+	body := *openapiclient.NewChannelmanagerUpdateMarketRequest("TenantId_example", "Id_example") // ChannelmanagerUpdateMarketRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1067,7 +1067,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 

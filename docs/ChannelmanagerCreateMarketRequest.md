@@ -6,10 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId**| **string** |   | [optional]
-**Name**| **string** |   | [optional]
+**TenantId**| **string** |   |
+**Name**| **string** |   |
 **Description**| **string** |   | [optional]
-**Countries**| [**[]ChannelmanagerCountryCode**](ChannelmanagerCountryCode.md) |   | [optional]
+**Countries**| [**[]ChannelmanagerCountryCode**](ChannelmanagerCountryCode.md) |   |
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
