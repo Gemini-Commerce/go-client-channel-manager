@@ -15,7 +15,6 @@ Install the following dependencies:
 
 ```sh
 go get github.com/stretchr/testify/assert
-go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -143,28 +142,22 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 ### standardAuthorization
 
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: https://iambackoffice.gogemini.io/iambackoffice.IamBackoffice/Login
-- **Scopes**: N/A
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization and passed in as the auth context for each request.
 
 Example
 
 ```go
-auth := context.WithValue(context.Background(), channelmanager.ContextAccessToken, "ACCESSTOKENSTRING")
-r, err := client.Service.Operation(auth, args)
-```
-
-Or via OAuth2 module to automatically refresh tokens and perform user authentication.
-
-```go
-import "golang.org/x/oauth2"
-
-/* Perform OAuth2 round trip request and obtain a token */
-
-tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
-auth := context.WithValue(oauth2.NoContext, channelmanager.ContextOAuth2, tokenSource)
+auth := context.WithValue(
+		context.Background(),
+		channelmanager.ContextAPIKeys,
+		map[string]channelmanager.APIKey{
+			"Authorization": {Key: "API_KEY_STRING"},
+		},
+	)
 r, err := client.Service.Operation(auth, args)
 ```
 
